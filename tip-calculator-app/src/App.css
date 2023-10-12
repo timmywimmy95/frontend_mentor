@@ -1,0 +1,25 @@
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  font-family: "Space Mono", monospace;
+}
+
+#main-body {
+  background-color: hsl(185, 41%, 84%);
+  display: flex;
+  min-height: 100vh;
+  height: 100vh;
+  justify-content: center;
+  align-items: center;
+}
+#main-body #main-body-text {
+  color: hsl(186, 14%, 43%);
+  word-wrap: break-word;
+  letter-spacing: 0.3rem;
+  font-size: 24px;
+  text-align: center;
+  width: 80px;
+}
+
+/*# sourceMappingURL=App.css.map */
