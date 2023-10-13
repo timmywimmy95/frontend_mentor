@@ -1,6 +1,20 @@
+import { useState } from 'react';
 import React from 'react';
 
 const MainBodyBill = () => {
+	const [bill, setBill] = useState(0.0);
+	const [tip, setTip] = useState(0);
+	const [people, setPeople] = useState(0);
+
+	const handleBill = (e) => {
+		setBill(e.target.value);
+		console.log(bill);
+	};
+	const handleTip = (e) => {
+		const tipNumber = parseInt(e.target.value.split('%'));
+		console.log(tipNumber);
+	};
+
 	return (
 		<>
 			<div id='main-bill-container'>
@@ -14,18 +28,50 @@ const MainBodyBill = () => {
 									alt='dollar-icon'
 								/>
 							</span>
-							<input type='text' />
+							<input
+								type='number'
+								defaultValue={bill.toFixed(2)}
+								step='0.01'
+								onChange={handleBill}
+								min='0'
+								pattern='^\d*(\.\d{0,2})?$'
+								title='Amount value up to two decimal places'
+							/>
 						</div>
 					</div>
 					<div id='tip-container'>
 						<p>Select Tip %</p>
 						<div className='tip-buttons-container'>
-							<input type='button' value='5%' />
-							<input type='button' value='10%' />
-							<input type='button' value='15%' />
-							<input type='button' value='25%' />
-							<input type='button' value='50%' />
-							<input type='text' value='Custom' />
+							<input
+								type='button'
+								value='5%'
+								onClick={handleTip}
+							/>
+							<input
+								type='button'
+								value='10%'
+								onClick={handleTip}
+							/>
+							<input
+								type='button'
+								value='15%'
+								onClick={handleTip}
+							/>
+							<input
+								type='button'
+								value='25%'
+								onClick={handleTip}
+							/>
+							<input
+								type='button'
+								value='50%'
+								onClick={handleTip}
+							/>
+							<input
+								type='text'
+								value='Custom'
+								onChange={handleBill}
+							/>
 						</div>
 					</div>
 					<div id='pax-container'>
@@ -37,7 +83,7 @@ const MainBodyBill = () => {
 									alt='person-icon'
 								/>
 							</span>
-							<input type='text' />
+							<input type='number' defaultValue={people} />
 						</div>
 					</div>
 				</div>
@@ -46,7 +92,7 @@ const MainBodyBill = () => {
 						<p>
 							Tip Amount <span> / person</span>
 						</p>
-						<h2>$4.27</h2>
+						<h2>${tip}</h2>
 					</div>
 					<div className='total-amount'>
 						<p>

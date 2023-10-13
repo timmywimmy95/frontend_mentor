@@ -6,7 +6,7 @@ import MainBodyBill from './components/MainBodyBill';
 const App = () => {
 	return (
 		<>
-			<div class='container'>
+			<div className='container'>
 				<MainBodyText />
 				<MainBodyBill />
 			</div>

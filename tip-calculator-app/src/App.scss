@@ -15,6 +15,17 @@ $light-grayish-cyan: hsl(185, 41%, 84%);
 $very-light-grayish-cyan: hsl(189, 41%, 97%);
 $white: hsl(0, 0%, 100%);
 
+input::-webkit-outer-spin-button,
+input::-webkit-inner-spin-button {
+	-webkit-appearance: none;
+	margin: 0;
+}
+
+/* Firefox */
+input[type='number'] {
+	-moz-appearance: textfield;
+}
+
 // container
 .container {
 	background-color: $light-grayish-cyan;
@@ -72,7 +83,8 @@ $white: hsl(0, 0%, 100%);
 			color: $very-dark-cyan;
 		}
 	}
-	input[type='text'] {
+	input[type='text'],
+	input[type='number'] {
 		border: none;
 		text-align: right;
 		background-color: $very-light-grayish-cyan;
