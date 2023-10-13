@@ -6,10 +6,18 @@ const MainBodyBill = () => {
 			<div id='main-bill-container'>
 				<div className='left-container'>
 					<div id='bill-container'>
-						<p>BILL</p>
-						<input type='text' />
+						<p>Bill</p>
+						<div className='input-container'>
+							<span>
+								<img
+									src='/images/icon-dollar.svg'
+									alt='dollar-icon'
+								/>
+							</span>
+							<input type='text' />
+						</div>
 					</div>
-					<div className='tip-container'>
+					<div id='tip-container'>
 						<p>Select Tip %</p>
 						<div className='tip-buttons-container'>
 							<input type='button' value='5%' />
@@ -20,9 +28,17 @@ const MainBodyBill = () => {
 							<input type='button' value='Custom' />
 						</div>
 					</div>
-					<div className='pax-container'>
+					<div id='pax-container'>
 						<p>Number of People</p>
-						<input type='text' />
+						<div className='input-container'>
+							<span>
+								<img
+									src='/images/icon-person.svg'
+									alt='person-icon'
+								/>
+							</span>
+							<input type='text' />
+						</div>
 					</div>
 				</div>
 				<div className='right-container'>

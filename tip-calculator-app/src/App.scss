@@ -35,7 +35,6 @@ $white: hsl(0, 0%, 100%);
 
 // main-text-container
 #main-text-container {
-	background-color: red;
 	width: 4.5rem;
 	overflow-wrap: break-word;
 	text-align: center;
@@ -44,6 +43,7 @@ $white: hsl(0, 0%, 100%);
 	.flex-item {
 		letter-spacing: 0.35rem;
 		text-indent: 0.35em;
+		color: $very-dark-cyan;
 	}
 }
 
@@ -53,8 +53,47 @@ $white: hsl(0, 0%, 100%);
 	flex-direction: row;
 	justify-content: center;
 	align-items: center;
+	border-radius: 0.6rem;
+	padding: 1rem;
+
+	.input-container {
+		margin-bottom: 1rem;
+		background-color: $very-light-grayish-cyan;
+		padding: 0.5rem;
+		border-radius: 0.3rem;
+		span {
+			color: $grayish-cyan;
+		}
+		input {
+			background-color: $very-light-grayish-cyan;
+			font-size: 0.9rem;
+			width: 95%;
+			color: $very-dark-cyan;
+		}
+	}
+	input[type='text'] {
+		border: none;
+		text-align: right;
+		background-color: $very-light-grayish-cyan;
+	}
+	input:focus {
+		outline: none;
+	}
 	.left-container {
 		margin: 0.5rem;
+		p {
+			color: $very-dark-cyan;
+			font-size: 0.75rem;
+			margin-bottom: 0.2rem;
+		}
+		#bill-container {
+		}
+		#tip-container {
+		}
+		#tip-buttons-container {
+		}
+		#pax-container {
+		}
 	}
 	.right-container {
 		margin: 0.5rem;
