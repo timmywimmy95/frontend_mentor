@@ -1,13 +1,14 @@
 import React from 'react';
+import MainBodyText from './components/MainBodyText';
 import '../src/App.css';
+import MainBodyBill from './components/MainBodyBill';
 
 const App = () => {
 	return (
 		<>
-			<div id='main-body'>
-				<div id='main-body-text'>
-					<p>SPLITTER</p>
-				</div>
+			<div class='container'>
+				<MainBodyText />
+				<MainBodyBill />
 			</div>
 		</>
 	);

@@ -4,6 +4,7 @@
 	padding: 0;
 	box-sizing: border-box;
 	font-family: 'Space Mono', monospace;
+	font-size: 24px;
 }
 
 $strong-cyan: hsl(172, 67%, 45%);
@@ -14,20 +15,66 @@ $light-grayish-cyan: hsl(185, 41%, 84%);
 $very-light-grayish-cyan: hsl(189, 41%, 97%);
 $white: hsl(0, 0%, 100%);
 
-// MAIN-BODY
-#main-body {
+// container
+.container {
 	background-color: $light-grayish-cyan;
-	display: flex;
-	min-height: 100vh;
 	height: 100vh;
+	display: flex;
+	flex-direction: column;
 	justify-content: center;
 	align-items: center;
-	#main-body-text {
-		color: $dark-grayish-cyan;
-		word-wrap: break-word;
-		letter-spacing: 0.3rem;
-		font-size: 24px;
-		text-align: center;
-		width: 80px;
+}
+
+// <div class='container'>
+//
+// <div id='main-text-container'>
+// 			<p>SPLITTER</p>
+// 		</div>
+// 				<MainBodyBill />
+// 			</div>
+
+// main-text-container
+#main-text-container {
+	background-color: red;
+	width: 4.5rem;
+	overflow-wrap: break-word;
+	text-align: center;
+	margin-bottom: 3rem;
+	p,
+	.flex-item {
+		letter-spacing: 0.35rem;
+		text-indent: 0.35em;
 	}
 }
+
+#main-bill-container {
+	background-color: $white;
+	display: flex;
+	flex-direction: row;
+	justify-content: center;
+	align-items: center;
+	.left-container {
+		margin: 0.5rem;
+	}
+	.right-container {
+		margin: 0.5rem;
+	}
+}
+
+// MAIN-BODY
+// #main-body {
+// 	background-color: $light-grayish-cyan;
+// 	display: flex;
+// 	min-height: 100vh;
+// 	height: 100vh;
+// 	justify-content: center;
+// 	align-items: center;
+// 	#main-body-text {
+// 		color: $dark-grayish-cyan;
+// 		word-wrap: break-word;
+// 		letter-spacing: 0.3rem;
+// 		font-size: 24px;
+// 		text-align: center;
+// 		width: 80px;
+// 	}
+// }
