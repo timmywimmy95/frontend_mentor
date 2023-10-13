@@ -99,7 +99,11 @@
   cursor: pointer;
 }
 #main-bill-container .right-container {
+  background-color: hsl(183, 100%, 15%);
+  border-radius: 0.75rem;
+  padding: 1rem;
   width: 50%;
+  height: 100%;
 }
 
 /*# sourceMappingURL=App.css.map */

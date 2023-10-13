@@ -124,7 +124,11 @@ $white: hsl(0, 0%, 100%);
 		}
 	}
 	.right-container {
+		background-color: $very-dark-cyan;
+		border-radius: 0.75rem;
+		padding: 1rem;
 		width: 50%;
+		height: 100%;
 	}
 }
 
