@@ -99,7 +99,8 @@ $white: hsl(0, 0%, 100%);
 				gap: 0.5rem;
 				width: 100%;
 				flex-wrap: wrap;
-				input[type='button'] {
+				input[type='button'],
+				input[type='text'] {
 					width: calc((100% / 3) - 8px);
 					background-color: $very-dark-cyan;
 					color: $white;
@@ -108,9 +109,10 @@ $white: hsl(0, 0%, 100%);
 					padding: 0.3rem 0.4rem;
 					font-size: 0.6rem;
 				}
-				input[type='button'][value='Custom'] {
+				input[type='text'][value='Custom'] {
 					background-color: $very-light-grayish-cyan;
 					color: $dark-grayish-cyan;
+					text-align: center;
 				}
 				input[type='button']:hover {
 					background-color: $strong-cyan;

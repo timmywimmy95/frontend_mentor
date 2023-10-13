@@ -25,7 +25,7 @@ const MainBodyBill = () => {
 							<input type='button' value='15%' />
 							<input type='button' value='25%' />
 							<input type='button' value='50%' />
-							<input type='button' value='Custom' />
+							<input type='text' value='Custom' />
 						</div>
 					</div>
 					<div id='pax-container'>
