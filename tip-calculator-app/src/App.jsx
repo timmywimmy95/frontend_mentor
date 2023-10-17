@@ -7,8 +7,10 @@ const App = () => {
 	return (
 		<>
 			<div className='container'>
-				<MainBodyText />
-				<MainBodyBill />
+				<div className='components-container'>
+					<MainBodyText />
+					<MainBodyBill />
+				</div>
 			</div>
 		</>
 	);

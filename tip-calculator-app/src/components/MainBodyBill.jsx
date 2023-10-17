@@ -1,23 +1,34 @@
-import { useState } from 'react';
 import React from 'react';
+import { useState, useRef, useMemo } from 'react';
+import useRenderCount from '../hooks/useRenderCount';
 
 const MainBodyBill = () => {
-	const [bill, setBill] = useState(0.0);
-	const [tip, setTip] = useState(0);
+	const renderCount = useRenderCount();
+	const billRef = useRef(0.0);
+	const tipRef = useRef(0);
+	const totalTipRef = useRef(0);
 	const [people, setPeople] = useState(0);
+	const [eachPax, setEachPax] = useState(0.0);
 
 	const handleBill = (e) => {
-		setBill(e.target.value);
-		console.log(bill);
+		billRef.current = e.target.value;
+		console.log(billRef.current);
 	};
 	const handleTip = (e) => {
-		const tipNumber = parseInt(e.target.value.split('%'));
-		console.log(tipNumber);
+		tipRef.current = parseInt(e.target.value.split('%'));
+		totalTipRef.current = (tipRef.current / 100) * billRef.current;
+		console.log(tipRef.current);
+	};
+
+	const handlePeople = (e) => {
+		const people = e.target.value;
+		setPeople(people);
 	};
 
 	return (
 		<>
 			<div id='main-bill-container'>
+				<p>Render Count: {renderCount}</p>
 				<div className='left-container'>
 					<div id='bill-container'>
 						<p>Bill</p>
@@ -30,7 +41,9 @@ const MainBodyBill = () => {
 							</span>
 							<input
 								type='number'
-								defaultValue={bill.toFixed(2)}
+								defaultValue={parseFloat(
+									billRef.current
+								).toFixed(2)}
 								step='0.01'
 								onChange={handleBill}
 								min='0'
@@ -83,7 +96,11 @@ const MainBodyBill = () => {
 									alt='person-icon'
 								/>
 							</span>
-							<input type='number' defaultValue={people} />
+							<input
+								type='number'
+								defaultValue={people}
+								onChange={handlePeople}
+							/>
 						</div>
 					</div>
 				</div>
@@ -92,13 +109,20 @@ const MainBodyBill = () => {
 						<p>
 							Tip Amount <span> / person</span>
 						</p>
-						<h2>${tip}</h2>
+						<h2>
+							$
+							{people !== 0
+								? parseFloat(
+										totalTipRef.current / people
+								  ).toFixed(2)
+								: parseFloat(0).toFixed(2)}
+						</h2>
 					</div>
 					<div className='total-amount'>
 						<p>
 							Total <span> / person</span>
 						</p>
-						<h2>$32.79</h2>
+						<h2>${parseFloat(eachPax).toFixed(2)}</h2>
 					</div>
 					<div className='reset-button'>
 						<input type='button' value='RESET' />
