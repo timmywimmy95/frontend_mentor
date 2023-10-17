@@ -13,6 +13,10 @@ const MainBodyBill = () => {
 		billRef.current.value = e.target.value;
 		console.log(billRef.current.value);
 	};
+
+	const handleCustomTip = (e) => {
+		console.log(e.target.value);
+	};
 	const handleTip = (e) => {
 		tipRef.current = parseInt(e.target.value.split('%'));
 	};
@@ -87,8 +91,8 @@ const MainBodyBill = () => {
 							/>
 							<input
 								type='text'
-								value='Custom'
-								onChange={handleBill}
+								placeholder='Custom'
+								onChange={handleCustomTip}
 							/>
 						</div>
 					</div>
@@ -118,14 +122,11 @@ const MainBodyBill = () => {
 						<h2>
 							$
 							{people !== 0
-								? // parseFloat(billRef.current.value).toFixed(2) +
-								  (
+								? (
 										parseFloat(billRef.current.value) *
 										(tipRef.current * 0.01)
 								  ).toFixed(2)
-								: //   parseFloat(billRef.current.value) *
-								  //   (1 + tipRef.current * 0.01)
-								  parseFloat(0).toFixed(2)}
+								: parseFloat(0).toFixed(2)}
 						</h2>
 					</div>
 					<div className='total-amount'>

@@ -83,6 +83,9 @@ input[type='number'] {
 			color: $very-dark-cyan;
 		}
 	}
+	.input-container:focus-within {
+		border: 2px solid $strong-cyan;
+	}
 	input[type='text'],
 	input[type='number'] {
 		border: none;
@@ -121,7 +124,7 @@ input[type='number'] {
 					padding: 0.3rem 0.4rem;
 					font-size: 0.6rem;
 				}
-				input[type='text'][value='Custom'] {
+				input[type='text'][placeholder='Custom'] {
 					background-color: $very-light-grayish-cyan;
 					color: $dark-grayish-cyan;
 					text-align: center;
@@ -129,6 +132,9 @@ input[type='number'] {
 				input[type='button']:hover {
 					background-color: $strong-cyan;
 					cursor: pointer;
+				}
+				input[type='text']:focus {
+					border: 2px solid $strong-cyan;
 				}
 			}
 		}
