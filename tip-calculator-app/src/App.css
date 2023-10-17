@@ -112,7 +112,7 @@ input[type=number] {
   text-align: center;
 }
 #main-bill-container .left-container #tip-container .tip-buttons-container input[type=button]:hover {
-  background-color: hsl(172, 67%, 45%);
+  background-color: hsl(189, 41%, 97%);
   cursor: pointer;
 }
 #main-bill-container .left-container #tip-container .tip-buttons-container input[type=text]:focus {
