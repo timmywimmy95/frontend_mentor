@@ -1,28 +1,32 @@
 import React from 'react';
-import { useState, useRef, useMemo } from 'react';
+import { useState, useRef, useEffect } from 'react';
 import useRenderCount from '../hooks/useRenderCount';
 
 const MainBodyBill = () => {
 	const renderCount = useRenderCount();
 	const billRef = useRef(0.0);
 	const tipRef = useRef(0);
-	const totalTipRef = useRef(0);
+
 	const [people, setPeople] = useState(0);
-	const [eachPax, setEachPax] = useState(0.0);
 
 	const handleBill = (e) => {
-		billRef.current = e.target.value;
-		console.log(billRef.current);
+		billRef.current.value = e.target.value;
+		console.log(billRef.current.value);
 	};
 	const handleTip = (e) => {
 		tipRef.current = parseInt(e.target.value.split('%'));
-		totalTipRef.current = (tipRef.current / 100) * billRef.current;
-		console.log(tipRef.current);
 	};
 
 	const handlePeople = (e) => {
 		const people = e.target.value;
 		setPeople(people);
+	};
+
+	const handleReset = (e) => {
+		billRef.current.value = 0;
+		tipRef.current = 0;
+		setPeople(0);
+		console.log(billRef.current.value, tipRef.current, people);
 	};
 
 	return (
@@ -41,14 +45,15 @@ const MainBodyBill = () => {
 							</span>
 							<input
 								type='number'
+								step='0.01'
+								onChange={handleBill}
 								defaultValue={parseFloat(
 									billRef.current
 								).toFixed(2)}
-								step='0.01'
-								onChange={handleBill}
 								min='0'
 								pattern='^\d*(\.\d{0,2})?$'
 								title='Amount value up to two decimal places'
+								ref={billRef}
 							/>
 						</div>
 					</div>
@@ -98,8 +103,9 @@ const MainBodyBill = () => {
 							</span>
 							<input
 								type='number'
-								defaultValue={people}
+								// defaultValue={people}
 								onChange={handlePeople}
+								value={people}
 							/>
 						</div>
 					</div>
@@ -112,20 +118,38 @@ const MainBodyBill = () => {
 						<h2>
 							$
 							{people !== 0
-								? parseFloat(
-										totalTipRef.current / people
+								? // parseFloat(billRef.current.value).toFixed(2) +
+								  (
+										parseFloat(billRef.current.value) *
+										(tipRef.current * 0.01)
 								  ).toFixed(2)
-								: parseFloat(0).toFixed(2)}
+								: //   parseFloat(billRef.current.value) *
+								  //   (1 + tipRef.current * 0.01)
+								  parseFloat(0).toFixed(2)}
 						</h2>
 					</div>
 					<div className='total-amount'>
 						<p>
 							Total <span> / person</span>
 						</p>
-						<h2>${parseFloat(eachPax).toFixed(2)}</h2>
+						{/* parseFloat(eachPaxRef.current).toFixed(2) */}
+						<h2>
+							$
+							{people !== 0
+								? (
+										(parseFloat(billRef.current.value) *
+											(1 + tipRef.current * 0.01)) /
+										people
+								  ).toFixed(2)
+								: parseFloat(0).toFixed(2)}
+						</h2>
 					</div>
 					<div className='reset-button'>
-						<input type='button' value='RESET' />
+						<input
+							type='button'
+							value='RESET'
+							onClick={handleReset}
+						/>
 					</div>
 				</div>
 			</div>
