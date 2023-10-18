@@ -138,10 +138,6 @@ input[type='number'] {
 				}
 			}
 		}
-		#tip-buttons-container {
-		}
-		#pax-container {
-		}
 	}
 	.right-container {
 		background-color: $very-dark-cyan;
@@ -193,21 +189,3 @@ input[type='number'] {
 		}
 	}
 }
-
-// MAIN-BODY
-// #main-body {
-// 	background-color: $light-grayish-cyan;
-// 	display: flex;
-// 	min-height: 100vh;
-// 	height: 100vh;
-// 	justify-content: center;
-// 	align-items: center;
-// 	#main-body-text {
-// 		color: $dark-grayish-cyan;
-// 		word-wrap: break-word;
-// 		letter-spacing: 0.3rem;
-// 		font-size: 24px;
-// 		text-align: center;
-// 		width: 80px;
-// 	}
-// }
